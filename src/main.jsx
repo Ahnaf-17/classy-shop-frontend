@@ -14,6 +14,7 @@ import Root from './Layouts/Root';
 import AddProduct from './Pages/AddProduct/AddProduct';
 import AuthProvider from './Providers/AuthProvider';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
+import MyCart from './Pages/MyCart/MyCart';
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,12 @@ const router = createBrowserRouter([
         path: '/addProduct',
         element: <PrivateRoute>
           <AddProduct></AddProduct>
+        </PrivateRoute>
+      },
+      {
+        path:'/myCart',
+        element: <PrivateRoute>
+          <MyCart></MyCart>
         </PrivateRoute>
       }
     ]

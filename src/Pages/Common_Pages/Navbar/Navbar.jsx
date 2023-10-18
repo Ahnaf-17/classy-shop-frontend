@@ -75,7 +75,7 @@ const Navbar = () => {
                             </label>
                     }
 
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-neutral rounded-box w-52">
+                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-amber-700 rounded-box w-52">
                         <li>
                             {
                                 user ?
@@ -85,7 +85,7 @@ const Navbar = () => {
                                     </div>
                                     :
                                     <Link to='/login'>
-                                        <button className="btn bg-yellow-400 font-bold">Login</button>
+                                        <button className="btn bg-white font-bold text-amber-700">Login</button>
                                     </Link>
                             }
                         </li>

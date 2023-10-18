@@ -4,9 +4,10 @@ import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import swal from "sweetalert";
+import { FcGoogle } from 'react-icons/fc';
 
 const Login = () => {
-    const {logIn} = useContext(AuthContext)
+    const {logIn,googleLogin} = useContext(AuthContext)
     const [logInErr, setLogInErr] = useState('');
     const location = useLocation()
     const navigate = useNavigate()
@@ -27,6 +28,18 @@ const Login = () => {
             console.error(error)
             swal("Error", "incorrect email or password", "error")
         })
+    }
+    const handleGoogleLogin = () =>{
+        googleLogin()
+        .then(result =>{
+            console.log(result.user)
+            navigate(location?.state ? location.state: '/')
+            
+        })
+        .catch(error =>{
+            console.error(error)
+        }) 
+
     }
 
 
@@ -63,9 +76,9 @@ const Login = () => {
                 <div className="form-control text-center">
                     <h2 className="text-white font-bold">Or</h2>
                 </div>
-                {/* <div className="form-control mt-2">
+                <div className="form-control mt-2">
                     <button onClick={handleGoogleLogin} className="btn bg-white text-blue-700 font-extrabold">LogIn with Google <FcGoogle className="text-2xl"></FcGoogle></button>
-                </div> */}
+                </div>
             </form>
             <p className="text-center pb-10 text-black mt-3">Don't have an account? <Link className="text-blue-500 font-bold" to='/register'>Register</Link></p>
             </div>
