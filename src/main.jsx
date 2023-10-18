@@ -13,6 +13,7 @@ import Register from './Pages/Register/Register';
 import Root from './Layouts/Root';
 import AddProduct from './Pages/AddProduct/AddProduct';
 import AuthProvider from './Providers/AuthProvider';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -35,7 +36,9 @@ const router = createBrowserRouter([
       },
       {
         path: '/addProduct',
-        element: <AddProduct></AddProduct>
+        element: <PrivateRoute>
+          <AddProduct></AddProduct>
+        </PrivateRoute>
       }
     ]
   },
