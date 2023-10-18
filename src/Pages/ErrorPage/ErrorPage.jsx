@@ -4,7 +4,8 @@ const ErrorPage = () => {
     return (
         <div>
             <h2>Page not found</h2>
-            <Link to='/'></Link>
+            <Link to='/'><button>
+                go to home</button></Link>
         </div>
     );
 };

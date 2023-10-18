@@ -3,7 +3,7 @@
 import { Link } from "react-router-dom";
 
 const Brands = ({brands}) => {
-    const {id,brand_name,brand_logo} = brands
+    const {brand_name,brand_logo} = brands
     return (
         <Link to={`/brands/${brand_name}`}>
         <div className="card h-96 pt-10 bg-base-100 shadow-xl">
