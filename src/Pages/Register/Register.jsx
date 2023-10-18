@@ -1,8 +1,51 @@
+/* eslint-disable no-unused-vars */
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
+import swal from "sweetalert";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
+
+
+    const {createUser} = useContext(AuthContext)
+    const [regError,setRegError] = useState('')
+    const [segSuccess,setRegSuccess] = useState('')
+
     const handleRegister = e =>{
         e.preventDefault();
+        // console.log(e.currentTarget)
+        const form = new FormData(e.currentTarget);
+        const name = form.get('name')
+        const email = form.get('email')
+        const imgUrl = form.get('image')
+        const password = form.get('password');
+        const upperCase = /[A-Z]/;
+        if(password <6 || !upperCase.test(password) ||!password.match(/[!"#$%&'()*+,-.:;<=>?@[\]^_`{|}~]/)){
+            swal("Error", "Minimum 6 character, 1 uppercase and one special character needed", "error");
+            return;
+        }
+        setRegError('')
+        setRegSuccess('')
+        createUser(email,password)
+        .then(result =>{
+            console.log(result.user)
+            swal("Good job!", "Registration successful", "success");
+
+            updateProfile(result.user,{
+                displayName:name,
+                photoURL:imgUrl
+            })
+            .then(()=> console.log("updated"))
+            .catch()
+
+        })
+        .catch(error =>{
+            console.log(error);
+            swal("Error", "This email is already used", "error")
+
+        })
+
     }
     return (
         <div>

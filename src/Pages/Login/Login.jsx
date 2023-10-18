@@ -1,9 +1,32 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unescaped-entities */
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
+import swal from "sweetalert";
 
 const Login = () => {
+    const {logIn} = useContext(AuthContext)
+    const [logInErr, setLogInErr] = useState('');
+    const location = useLocation()
+    const navigate = useNavigate()
+
     const handleLogin = e => {
         e.preventDefault()
+        // console.log(e.currentTarget)
+        const form = new FormData(e.currentTarget);
+        const email = form.get('email')
+        const password = form.get('password')
+        setLogInErr('')
+        logIn(email,password)
+        .then(result =>{
+            console.log(result.user)
+            navigate(location?.state ? location.state: '/')
+        })
+        .catch(error =>{
+            console.error(error)
+            swal("Error", "incorrect email or password", "error")
+        })
     }
 
 
