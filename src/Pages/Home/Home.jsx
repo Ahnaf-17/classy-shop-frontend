@@ -30,7 +30,7 @@ const Home = () => {
                 <div>
                     <h3 className="text-4xl font-extrabold text-gray-600 italic text-center  mt-10 mb-10"></h3>
                 </div>
-                <div className="hero min-h-screen bg-white">
+                <div className="hero min-h-screen bg-base-100">
                     <div className="hero-content flex-col  lg:flex-row-reverse">
                         <img src="https://i.ibb.co/JQLtGqT/jordan.jpg" className="md:max-w-lg rounded-lg shadow-2xl" />
                         <div>
