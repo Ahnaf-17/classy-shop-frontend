@@ -6,28 +6,42 @@ import Footer from "../Common_Pages/Footer/Footer";
 import { useEffect, useState } from "react";
 
 const Products = () => {
-    const [aBrand,setAbrand] = useState([]);
-    const {brand} = useParams();
+    const [aBrand, setAbrand] = useState([]);
+    const { brand } = useParams();
     const allProducts = useLoaderData();
-    useEffect(()=>{
-        const findABrand = allProducts.filter(aBrand => aBrand.brand.toLowerCase() == brand.toLowerCase() )
+    useEffect(() => {
+        const findABrand = allProducts.filter(aBrand => aBrand.brand.toLowerCase() == brand.toLowerCase())
         setAbrand(findABrand)
-    },[allProducts, brand])
+        console.log(findABrand.length)
+    }, [allProducts, brand])
+
     return (
         <div>
             <Navbar></Navbar>
             <Advertisement></Advertisement>
-            {/* <h2>products : {allProducts.length}</h2> */}
 
             {
-                allProducts.length>0
+                aBrand.length > 0 ? 
+                <div className="grid md:grid-cols-2 gap-4 lg:grid-cols-3 grid-cols-1">
+                {
+                    aBrand.map(product => <ProductCard key={product._id} aBrand={product}></ProductCard>)
+                }
+                </div> : 
+                <div className=" flex flex-col items-center">
+                <img src="https://i.ibb.co/H7BjrJ1/no-product-8316266-6632286.png" alt="" />
+                <h3 className="text-amber-700 font-bold text-3xl">No products available</h3>
+                </div>
             }
             
-            <div className="grid md:grid-cols-2 gap-4 lg:grid-cols-3 grid-cols-1">
-            {
-                aBrand.map(product => <ProductCard key={product._id} aBrand={product}></ProductCard>)
-            }
-            </div>
+
+            {/* <div className="grid md:grid-cols-2 gap-4 lg:grid-cols-3 grid-cols-1">
+                {
+                    aBrand.map(product => <ProductCard key={product._id} aBrand={product}></ProductCard>)
+                }
+            </div> */}
+
+
+
             <Footer></Footer>
         </div>
     );
