@@ -1,21 +1,25 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 
-const ViewDetailsCard = ({product}) => {
-    const {_id,name,brand,type,price,details,rating,photo} = product || {}
+const ViewDetailsCard = ({ product }) => {
+    const {  name, brand, price, details, photo } = product || {}
     return (
         <div>
-            <div className="card bg-gray-500  rounded-xl  md:rounded-none">
-            <figure><img className="w-full lg:h-[700px]" src={photo} alt="Shoes" /></figure>
-            <div className="card-body">
-                <h2 className="card-title text-white mb-4  lg:text-4xl font-bold">{name}</h2>
-                <h2 className="card-title text-white mb-4  lg:text-4xl font-bold">Brand: {brand}</h2>
-                <p className="text-white mb-5">{details}</p>
-                <h2 className="card-title text-white mb-4  lg:text-xl font-bold">Price : {price}$</h2>
-                <Link>
-                <button className="btn bg-amber-700 text-white border-none w-40">Add to cart</button>
-                </Link>
+            <div className="hero min-h-screen bg-base-100">
+                <div className="hero-content gap-10 flex-col lg:flex-row p-10">
+                    <img src={photo} className="max-w-sm rounded-lg shadow-2xl" />
+                    <div>
+                        <h1 className="text-3xl font-bold">{name}</h1>
+                        <p className="py-2">Brand : {brand}</p>
+                        <p className="py-2">Details : {details}</p>
+                        <p className="py-2">Brand : {brand}</p>
+                        <p className="py-2">Price : {price}$</p>
+                       <Link>
+                       <button className="btn bg-amber-700 text-white">Add to cart</button>
+                       </Link>
+                    </div>
+                </div>
             </div>
-        </div>
         </div>
     );
 };

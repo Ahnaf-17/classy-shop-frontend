@@ -18,7 +18,7 @@ const ProductCard = ({aBrand}) => {
                     <Link to={`/details/${_id}`}>
                     <button className="btn bg-amber-700 text-white hover:text-amber-700">view details</button>
                     </Link>
-                    <Link >
+                    <Link to={`/updateProduct/${_id}`}>
                     <button className="btn bg-amber-700 text-white  hover:text-amber-700">Update</button>
                     </Link>
                 </div>
