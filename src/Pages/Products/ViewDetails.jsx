@@ -11,7 +11,7 @@ const ViewDetails = () => {
         const findDetails = allDetails.find(product => product._id == _id);
         setProduct(findDetails)
     },[_id,allDetails])
-    
+    console.log("p id",product)
     return (
         <div>
             <Navbar></Navbar>
