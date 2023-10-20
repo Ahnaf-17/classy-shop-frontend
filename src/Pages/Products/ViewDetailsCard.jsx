@@ -1,24 +1,32 @@
 /* eslint-disable react/prop-types */
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext,   } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
-
 const ViewDetailsCard = ({ product }) => {
-
     const {user} = useContext(AuthContext)
+    const { name,brand,price,details,photo } = product || {}
 
-    const handleCart = e =>{
-        const form = e.target;
-        const name = form.name.value;
-        const brand = form.brand.value;
-        const type = form.type.value;
-        const price = form.price.value;
-        const details = form.details.value;
-        const rating = form.rating.value;
-        const photo = form.photo.value;
+    // const [cart,setCart] = useState();
+    // const {email} = useParams();
+    // const cartProducts = useLoaderData();
+    // useEffect(()=>{
+    //     const findCartByEmail = cartProducts.filter(cart => cart.email == email)
+    //     setCart(findCartByEmail);
+    //     console.log(findCartByEmail)
+    // },[cartProducts, email])
 
-        const cartProduct = {user,name,brand,type,price,details,rating,photo}
+
+    const handleCart = () =>{
+        // const form = e.target
+        // const name = form.name.name;
+        // const brand = form.brand;
+        // const type = form.type;
+        // const price = form.price;
+        // const details = form.details;
+        // const rating = form.rating;
+        // const photo = form.photo;
+
+        const cartProduct = {user,name,brand,price,details,photo}
         console.log(cartProduct)
 
         // send to server 
@@ -45,7 +53,7 @@ const ViewDetailsCard = ({ product }) => {
 
     }
 
-    const { name,brand,type,price,details,rating,photo } = product || {}
+
     return (
         <div>
             <div className="hero min-h-screen bg-base-100">
@@ -57,9 +65,7 @@ const ViewDetailsCard = ({ product }) => {
                         <p className="py-2">Details : {details}</p>
                         <p className="py-2">Brand : {brand}</p>
                         <p className="py-2">Price : {price}$</p>
-                       <Link>
                        <button onClick={handleCart} className="btn bg-amber-700 text-white">Add to cart</button>
-                       </Link>
                     </div>
                 </div>
             </div>
