@@ -50,28 +50,28 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
           <MyCart></MyCart>
         </PrivateRoute>,
-        // loader: ()=> fetch('http://localhost:5000/cart')
+        // loader: ()=> fetch('https://classy-shop-server-atu86hzmb-ahnaf-ahmeds-projects.vercel.app/cart')
       },
       {
         path: '/products/:brand',
         element: <PrivateRoute>
           <Products></Products>
         </PrivateRoute>,
-        loader: ()=> fetch('http://localhost:5000/product'),
+        loader: ()=> fetch('https://classy-shop-server-atu86hzmb-ahnaf-ahmeds-projects.vercel.app/product'),
       },
       {
         path: '/details/:_id',
         element:<PrivateRoute>
           <ViewDetails></ViewDetails>
         </PrivateRoute>,
-        loader: ()=> fetch('http://localhost:5000/product')
+        loader: ()=> fetch('https://classy-shop-server-atu86hzmb-ahnaf-ahmeds-projects.vercel.app/product')
       },
       {
         path: '/updateProduct/:id',
         element: <PrivateRoute>
           <UpdateProduct></UpdateProduct>
         </PrivateRoute>,
-        loader: ({params})=> fetch(`http://localhost:5000/product/${params.id}`)
+        loader: ({params})=> fetch(`https://classy-shop-server-atu86hzmb-ahnaf-ahmeds-projects.vercel.app/product/${params.id}`)
       }
     ]
   },

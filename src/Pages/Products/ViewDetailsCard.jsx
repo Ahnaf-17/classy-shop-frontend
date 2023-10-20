@@ -30,7 +30,7 @@ const ViewDetailsCard = ({ product }) => {
         console.log(cartProduct)
 
         // send to server 
-        fetch('http://localhost:5000/cart', {
+        fetch('https://classy-shop-server-atu86hzmb-ahnaf-ahmeds-projects.vercel.app/cart', {
             method: "POST",
             headers: {
                 "content-type": "application/json" 

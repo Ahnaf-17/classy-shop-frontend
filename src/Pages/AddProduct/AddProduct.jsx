@@ -20,7 +20,7 @@ const AddProduct = () => {
         console.log(newProduct)
 
         // send to server 
-        fetch('http://localhost:5000/product', {
+        fetch('https://classy-shop-server-atu86hzmb-ahnaf-ahmeds-projects.vercel.app/product', {
             method: "POST",
             headers: {
                 "content-type": "application/json" 

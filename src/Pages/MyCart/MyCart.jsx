@@ -15,7 +15,7 @@ const MyCart = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/cart/${user.email}`)
+        fetch(`https://classy-shop-server-atu86hzmb-ahnaf-ahmeds-projects.vercel.app/cart/${user.email}`)
         .then(res => res.json())
         .then(data => {
             console.log("this is data",data)
@@ -31,7 +31,7 @@ const MyCart = () => {
     // console.log("loggedin User :", email);
 
     const handleCartDelete = id => {
-        fetch(`http://localhost:5000/cart/${id}`, {
+        fetch(`https://classy-shop-server-atu86hzmb-ahnaf-ahmeds-projects.vercel.app/cart/${id}`, {
             method: "DELETE"
         }).then(res => res.json())
             .then(data => {
