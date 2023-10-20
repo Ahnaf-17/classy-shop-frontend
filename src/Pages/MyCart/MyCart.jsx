@@ -1,4 +1,4 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import Navbar from "../Common_Pages/Navbar/Navbar";
 import { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
@@ -7,16 +7,28 @@ import { AuthContext } from "../../Providers/AuthProvider";
 const MyCart = () => {
     const {user} = useContext(AuthContext)
 
-    const cartProducts = useLoaderData()
+    // const cartProducts = useLoaderData()
+    const [cartProducts,setCartProducts] = useState([])
     const [products, setProducts] = useState(cartProducts)
-    const { email } = useParams()
+    // const { email } = useParams()
     const [userEmail, setUserEmail] = useState([]);
+
+
     useEffect(() => {
-        const findUser = cartProducts.find(userEmail => userEmail.email == user.email );
-        setUserEmail(findUser)
-    }, [cartProducts, user.email])
-    console.log("userEmail :", user.email);
-    console.log("loggedin User :", email);
+        fetch(`http://localhost:5000/cart/${user.email}`)
+        .then(res => res.json())
+        .then(data => {
+            console.log("this is data",data)
+            setCartProducts(data)
+        })
+        // const findUser = cartProducts.find(userEmail => userEmail.email == user.email );
+        // setUserEmail(findUser)
+    }, [ user.email])
+
+
+
+    // console.log("userEmail :", user.email);
+    // console.log("loggedin User :", email);
 
     const handleCartDelete = id => {
         fetch(`http://localhost:5000/cart/${id}`, {
@@ -41,8 +53,8 @@ const MyCart = () => {
                             )
                         }
                     })
-                    const remainingProduct = products.filter(product => product._id !== id)
-                    setProducts(remainingProduct)
+                    const remainingProduct = cartProducts.filter(product => product._id !== id)
+                    setCartProducts(remainingProduct)
                 }
             })
     }
@@ -65,7 +77,7 @@ const MyCart = () => {
                     <tbody>
                         {/* row 1 */}
                         {
-                            products.map(product => <tr key={product._id}>
+                            cartProducts.map(product => <tr key={product._id}>
                                 <th>#</th>
                                 <td>{product.name}</td>
                                 <td>{product.brand}</td>
