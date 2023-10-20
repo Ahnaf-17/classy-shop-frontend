@@ -58,7 +58,7 @@ const ViewDetailsCard = ({ product }) => {
         <div>
             <div className="hero min-h-screen bg-base-100">
                 <div className="hero-content gap-10 flex-col lg:flex-row p-10">
-                    <img src={photo} className="max-w-sm rounded-lg shadow-2xl" />
+                    <img src={photo} className="md:max-w-sm rounded-lg shadow-2xl" />
                     <div>
                         <h1 className="text-3xl font-bold">{name}</h1>
                         <p className="py-2">Brand : {brand}</p>

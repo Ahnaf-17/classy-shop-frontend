@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+/* eslint-disable no-unused-vars */
 import Navbar from "../Common_Pages/Navbar/Navbar";
 import { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
@@ -11,7 +11,7 @@ const MyCart = () => {
     const [cartProducts,setCartProducts] = useState([])
     const [products, setProducts] = useState(cartProducts)
     // const { email } = useParams()
-    const [userEmail, setUserEmail] = useState([]);
+    // const [userEmail, setUserEmail] = useState([]);
 
 
     useEffect(() => {
@@ -36,22 +36,13 @@ const MyCart = () => {
         }).then(res => res.json())
             .then(data => {
                 if (data.deletedCount > 0) {
-                    Swal.fire({
-                        title: 'Are you sure?',
-                        text: "You won't be able to revert this!",
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: 'Yes, delete it!'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            Swal.fire(
-                                'Deleted!',
-                                'Your product has been removed.',
-                                'success'
-                            )
-                        }
+                    Swal.fire(
+                        'Deleted!',
+                        'Your product has been removed.',
+                        'success'
+                    )
+                    .then((result) => {
+                        console.log(result)
                     })
                     const remainingProduct = cartProducts.filter(product => product._id !== id)
                     setCartProducts(remainingProduct)
