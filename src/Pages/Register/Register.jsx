@@ -50,7 +50,7 @@ const Register = () => {
     return (
         <div>
             
-            <div className=" min-h-screen bg-white">
+            <div className=" min-h-screen bg-base-100">
                 <div className="pt-16 flex flex-col justify-center mb-5 items-center">
                 <Link to='/'>
                 <img src="https://i.ibb.co/17HxRTd/logo.png" alt="" />
@@ -92,7 +92,7 @@ const Register = () => {
                 </div>
             </form>
 
-            <p className="text-center mt-3 text-black">Already have an account,  <Link className="text-blue-600 font-semibold" to='/login'>Login</Link></p>
+            <p className="text-center mt-3 text-gray-500">Already have an account,  <Link className="text-blue-600 font-semibold" to='/login'>Login</Link></p>
             </div>
         </div>
     );

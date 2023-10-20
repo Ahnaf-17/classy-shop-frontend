@@ -45,7 +45,7 @@ const Login = () => {
 
     
     return (
-        <div className=" min-h-screen bg-white">
+        <div className=" min-h-screen bg-base100">
             <div className="pt-16 flex flex-col justify-center mb-5 items-center">
                 <Link to='/'>
                 <img src="https://i.ibb.co/17HxRTd/logo.png" alt="" />
@@ -80,7 +80,7 @@ const Login = () => {
                     <button onClick={handleGoogleLogin} className="btn bg-white text-blue-700 font-extrabold">LogIn with Google <FcGoogle className="text-2xl"></FcGoogle></button>
                 </div>
             </form>
-            <p className="text-center pb-10 text-black mt-3">Don't have an account? <Link className="text-blue-500 font-bold" to='/register'>Register</Link></p>
+            <p className="text-center pb-10 text-gray-500 mt-3">Don't have an account? <Link className="text-blue-500 font-bold" to='/register'>Register</Link></p>
             </div>
     );
 };

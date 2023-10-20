@@ -29,16 +29,16 @@ const Navbar = () => {
     }
     const navLinks = <>
     <li><NavLink to='/' className={({ isActive, isPending }) =>
-        isPending ? "pending" : isActive ? "text-black" : ""
+        isPending ? "pending" : isActive ? "text-gray-500" : ""
     }>Home</NavLink></li>
     <li><NavLink to='/addProduct' className={({ isActive, isPending }) =>
-        isPending ? "pending" : isActive ? "text-black" : ""
+        isPending ? "pending" : isActive ? "text-gray-500" : ""
     }>Add Product</NavLink></li>
     <li><NavLink to='/myCart' className={({ isActive, isPending }) =>
-        isPending ? "pending" : isActive ? "text-black" : ""
+        isPending ? "pending" : isActive ? "text-gray-500" : ""
     }>My Cart</NavLink></li>
     <li><NavLink to='/login' className={({ isActive, isPending }) =>
-        isPending ? "pending" : isActive ? "text-black" : ""
+        isPending ? "pending" : isActive ? "text-gray-500" : ""
     }>Log in</NavLink></li>
     <li>
     <label className="swap swap-rotate">
@@ -59,7 +59,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar  bg-white text-neutral-content mt-3 mb-3">
+        <div className="navbar  bg-base-100 text-neutral-content mt-3 mb-3">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
