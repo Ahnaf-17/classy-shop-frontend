@@ -54,9 +54,9 @@ const router = createBrowserRouter([
       },
       {
         path: '/products/:brand',
-        element: <PrivateRoute>
+        element: 
           <Products></Products>
-        </PrivateRoute>,
+        ,
         loader: ()=> fetch('https://classy-shop-server-atu86hzmb-ahnaf-ahmeds-projects.vercel.app/product'),
       },
       {
